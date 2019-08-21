@@ -1,0 +1,68 @@
+- project:
+    name: postman
+    jobs:
+        - 'postman_{name}':
+            name: post_200_with_post200data
+            script: newman run POST_200_with_post200data.postman_collection.json\ -d post200data.csv
+        - 'postman_{name}':
+            name: post_400_with_post400data
+            script: newman run POST_400_with_post400data.postman_collection.json\ -d post400data.csv
+        - 'postman_{name}':
+            name: post_200
+            script: newman run POST_200.postman_collection.json
+        - 'postman_{name}':
+            name: post_400
+            script: newman run POST_400.postman_collection.json
+        - 'postman_{name}':
+            name: post_get_delete_get
+            script: newman run POST_GET_DELETE_GET.postman_collection.json
+        - 'postman_{name}':
+            name: delete
+            script: newman run DELETE.postman_collection.json
+        - 'postman_{name}':
+            name: get
+            script: newman run GET.postman_collection.json
+        - 'postman_{name}':
+            name: get_all
+            script: newman run GET_All.postman_collection.json
+        - 'postman_{name}':
+            name: headers
+            script: newman run Headers.postman_collection.json
+        - 'postman_{name}':
+            name: nonexistent_endpoint
+            script: newman run Nonexistent_endpoint.postman_collection.json
+        - 'postman_{name}':
+            name: not_allowed_method
+            script: newman run Not_allowed_method.postman_collection.json
+
+- job-template:
+    disabled_var:
+    command: 'df'
+    type: freestyle
+
+    name: 'postman_{name}'
+    id: 'postman_{name}'
+    scm:
+      - postman_template
+    builders:
+      - batch: "{script}"
+    description: 'Do not edit this job through the web!'
+    disabled: false
+    concurrent: true
+    quiet-period: 5
+    block-downstream: false
+    block-upstream: false
+    retry-count: 3
+    logrotate:
+      daysToKeep: 3
+      numToKeep: 20
+      artifactDaysToKeep: -1
+      artifactNumToKeep: -1
+
+- scm:
+    name: postman_template
+    scm:
+      - git:
+         url: https://github.com/MaryGeraseva/5-postmanApiTests.git
+         branches:
+          - master

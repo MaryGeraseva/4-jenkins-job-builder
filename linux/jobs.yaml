@@ -3,10 +3,10 @@
     jobs:
         - 'postman_{name}':
             name: post_200_with_post200data
-            script: newman run POST_200_with_post200data.postman_collection.json\ -d post200data.csv
+            script: newman run POST_200_with_post200data.postman_collection.json -d post200data.csv
         - 'postman_{name}':
             name: post_400_with_post400data
-            script: newman run POST_400_with_post400data.postman_collection.json\ -d post400data.csv
+            script: newman run POST_400_with_post400data.postman_collection.json -d post400data.csv
         - 'postman_{name}':
             name: post_200
             script: newman run POST_200.postman_collection.json

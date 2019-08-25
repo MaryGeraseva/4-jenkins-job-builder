@@ -51,6 +51,42 @@ This is a fully completed solution for working with Jenkins, JJB and postman col
 Docker file and its usage information in my next project:  
 https://github.com/MaryGeraseva/6-docker-jenkins-newman-jjb
 
+* open command line
+* check docker version `docker --version`
+  * if docker doesn't find install from [Docker](https://docs.docker.com/docker-for-windows/install/)
+* clone git repository `https://github.com/MaryGeraseva/6-docker-jenkins-newman-jjb.git`
+* create and open folder for Jenkins 
+ * `cd [$user.dir]/6-docker-jenkins-newman-jjb`
+ * `mkdir jenkins-data`
+ * `cd jenkins-data`
+* build Jenkins image `docker build -t [$image-name] ./`
+* build container `docker run -v [$user.dir]/6-docker-jenkins-newman-jjb/jenkins-data:/var/jenkins_home --name [$image-name] -p 8080:8080 -p 50000:50000 [$container-name]`
+* open Jenkins, create new user and download required plugins
+* personal configuration `localhost:8080/me/configure`
+
+![alt text](https://github.com/MaryGeraseva/screenshots/blob/master/configure.png)
+
+* add user token
+
+![alt text](https://github.com/MaryGeraseva/screenshots/blob/master/add%20token.png)
+
+* generate and copy user token
+
+![alt text](https://github.com/MaryGeraseva/screenshots/blob/master/generate%20tocken.png)
+
+![alt text](https://github.com/MaryGeraseva/screenshots/blob/master/copy%20tocken.png)
+
+* go into docker container sa root `docker exec -u 0 -it [$container-name] bash`
+* clone repository with JJB files `git clone https://github.com/MaryGeraseva/4-jenkins-job-builder.git`
+* go to folder with JJB files `cd 4-jenkins-job-builder/linux`
+* open configuration file jenkins_jobs.ini in Vim `vim jenkins_jobs.ini`
+  * input  `i` and correct personal authentication data `[$user-name]` and `[$user-token]`
+  * input `Esc` or `Ctrl+C`
+  * input `:q` for safe and quit
+* add jobs with JJB from command-line  
+`jenkins-jobs --conf ./jenkins_jobs.ini update ./jobs.yaml`
+* check changes in your Jenkins
+
 
 ## For feedback
 **e-mail:** mary.geraseva@gmail.com  

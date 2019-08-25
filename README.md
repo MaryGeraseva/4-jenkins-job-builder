@@ -14,8 +14,8 @@ Jenkins and Jenkins job builder
   * if python doesn't find install from [Python](https://www.python.org/downloads/)
 * check python version `pip --version`
    * if python doesn't find install   
-    `curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py`   
-    `python python3-pip -y`
+     * `curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py`   
+     * `python python3-pip -y`
 * install jenkins-job builder `pip install jenkins-job-builder`
 * check jenkins-job builder in your OS `jenkins-jobs`
   * if previous command doesn't exist check/refresh in $PATH correct path to python scripts folder `[$user.dir]\Python\Python<version>\Scripts`
@@ -40,7 +40,7 @@ Jenkins and Jenkins job builder
 ![alt text](https://github.com/MaryGeraseva/screenshots/blob/master/copy%20tocken.png)
 
 * open configuration file jenkins_jobs.ini in `[$user.dir]/4-jenkins-job-builder/windows`  
-and correct personal authentication data `[$user-name]` and `[$user-tocken]`
+and correct personal authentication data `[$user-name]` and `[$user-token]`
 * add jobs with JJB from command-line  
 `jenkins-jobs --conf ./jenkins_jobs.ini update ./jobs.yaml`
 * check changes in your Jenkins

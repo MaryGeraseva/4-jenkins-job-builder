@@ -81,7 +81,7 @@ This is a fully completed solution for working with Jenkins, JJB, and Postman co
 * open configuration file jenkins_jobs.ini in Vim `vim jenkins_jobs.ini`
   * input  `i` and correct personal authentication data `[$user-name]` and `[$user-token]`
   * input `Esc` or `Ctrl+C`
-  * input `:q` for saving and quit
+  * input `:wq` for saving and quit
 * add jobs with JJB from command-line  
 `jenkins-jobs --conf ./jenkins_jobs.ini update ./jobs.yaml`
 * check changes in your Jenkins

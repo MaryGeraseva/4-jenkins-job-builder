@@ -47,7 +47,7 @@ and correct personal authentication data `[$user-name]` and `[$user-token]`
 
 ### How to add jobs in Jenkins on Linux in docker container
 [There is my version](https://github.com/MaryGeraseva/6-docker-jenkins-newman-jjb) of Jenkins docker image.   
-It based on the official Jenkins docker image and also includes Node.js, Newman, Python, PIP, VIM and JJB.       
+It based on the official Jenkins docker image and also includes Node.js, Newman, Python, PIP, VIM, and JJB.       
 This is a fully completed solution for working with Jenkins, JJB, and Postman collections.  
 
 * open command line
@@ -85,6 +85,8 @@ This is a fully completed solution for working with Jenkins, JJB, and Postman co
 * add jobs with JJB from command-line  
 `jenkins-jobs --conf ./jenkins_jobs.ini update ./jobs.yaml`
 * check changes in your Jenkins
+
+More information about Jenkins job builder [here](https://docs.openstack.org/infra/jenkins-job-builder/)
 
 ## For feedback
 **e-mail:** mary.geraseva@gmail.com  

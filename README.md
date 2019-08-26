@@ -16,13 +16,13 @@ Jenkins and Jenkins job builder
    * if python doesn't find install   
      * `curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py`   
      * `python python3-pip -y`
-* install jenkins-job builder `pip install jenkins-job-builder`
-* check jenkins-job builder in your OS `jenkins-jobs`
+* install jenkins job builder `pip install jenkins-job-builder`
+* check jenkins job builder in your OS `jenkins-jobs`
   * if previous command doesn't exist check/refresh in $PATH correct path to python scripts folder `[$user.dir]\Python\Python<version>\Scripts`
-* check node.js `node -v`
-  * if node.js doesn't find install version 8.X or 10.X from [Node.js](https://nodejs.org/en/)
+* check Node.js `node -v`
+  * if Node.js doesn't find install version 8.X or 10.X from [Node.js](https://nodejs.org/en/)
 * check Newman `newman -v`
-  * if Newman doesn't find install with node.js `npm install -g newman`
+  * if Newman doesn't find install with Node.js `npm install -g newman`
 * clone repository with JJB files `git clone https://github.com/MaryGeraseva/4-jenkins-job-builder.git`
 * go to folder with windows files version `cd [$user.dir]/4-jenkins-job-builder/windows`
 * start your Jenkins and open personal configuration `localhost:8080/me/configure`
@@ -51,8 +51,8 @@ It based on the official Jenkins docker image and also includes Node.js, Newman,
 This is a fully completed solution for working with Jenkins, JJB, and Postman collections.  
 
 * open command line
-* check docker version `docker --version`
-  * if docker doesn't find install from [Docker](https://docs.docker.com/docker-for-windows/install/)
+* check Docker version `docker --version`
+  * if Docker doesn't find install from [Docker](https://docs.docker.com/docker-for-windows/install/)
 * clone git repository `https://github.com/MaryGeraseva/6-docker-jenkins-newman-jjb.git`
 * create and open folder for Jenkins 
  * `cd [$user.dir]/6-docker-jenkins-newman-jjb`
@@ -61,7 +61,7 @@ This is a fully completed solution for working with Jenkins, JJB, and Postman co
 * build Jenkins image `docker build -t [$image-name] ./`
 * build container `docker run -v [$user.dir]/6-docker-jenkins-newman-jjb/jenkins-data:/var/jenkins_home --name [$image-name] -p 8080:8080 -p 50000:50000 [$container-name]`
 * open Jenkins, create new user and download required plugins
-* personal configuration `localhost:8080/me/configure`
+* open personal configuration `localhost:8080/me/configure`
 
 ![alt text](https://github.com/MaryGeraseva/screenshots/blob/master/configure.png)
 
@@ -75,13 +75,13 @@ This is a fully completed solution for working with Jenkins, JJB, and Postman co
 
 ![alt text](https://github.com/MaryGeraseva/screenshots/blob/master/copy%20tocken.png)
 
-* go into docker container sa root `docker exec -u 0 -it [$container-name] bash`
+* go into docker container as root `docker exec -u 0 -it [$container-name] bash`
 * clone repository with JJB files `git clone https://github.com/MaryGeraseva/4-jenkins-job-builder.git`
 * go to folder with JJB files `cd 4-jenkins-job-builder/linux`
 * open configuration file jenkins_jobs.ini in Vim `vim jenkins_jobs.ini`
   * input  `i` and correct personal authentication data `[$user-name]` and `[$user-token]`
   * input `Esc` or `Ctrl+C`
-  * input `:q` for safe and quit
+  * input `:q` for saving and quit
 * add jobs with JJB from command-line  
 `jenkins-jobs --conf ./jenkins_jobs.ini update ./jobs.yaml`
 * check changes in your Jenkins

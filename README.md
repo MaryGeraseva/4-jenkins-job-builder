@@ -1,7 +1,7 @@
 # Jenkins job builder project
 
 Jenkins job builder (JJB) is an additional application which takes simple descriptions of Jenkins jobs in YAML or JSON format and uses them to configure Jenkins.
-This project contains Windows and Linux version jenkins job builder files for running postman collections with Jenkins from [this project](https://github.com/MaryGeraseva/5-postman-api-tests).
+This project contains Windows and Linux version Jenkins job builder files for running postman collections with Jenkins from [this project](https://github.com/MaryGeraseva/5-postman-api-tests).
 
 ## Tools
 Jenkins and Jenkins job builder
@@ -21,8 +21,8 @@ Jenkins and Jenkins job builder
   * if previous command doesn't exist check/refresh in $PATH correct path to python scripts folder `[$user.dir]\Python\Python<version>\Scripts`
 * check node.js `node -v`
   * if node.js doesn't find install version 8.X or 10.X from [Node.js](https://nodejs.org/en/)
-* check newman `newman -v`
-  * if newman doesn't find install with node.js `npm install -g newman`
+* check Newman `newman -v`
+  * if Newman doesn't find install with node.js `npm install -g newman`
 * clone repository with JJB files `git clone https://github.com/MaryGeraseva/4-jenkins-job-builder.git`
 * go to folder with windows files version `cd [$user.dir]/4-jenkins-job-builder/windows`
 * start your Jenkins and open personal configuration `localhost:8080/me/configure`
@@ -46,10 +46,9 @@ and correct personal authentication data `[$user-name]` and `[$user-token]`
 * check changes in your Jenkins
 
 ### How to add jobs in Jenkins on Linux in docker container
-I created a docker image which based on official Jenkins docker image and also includes Node.js, Newman, Python, PIP, VIM and JJB.     
-This is a fully completed solution for working with Jenkins, JJB and postman collection.  
-Docker file and its usage information in my next project:  
-https://github.com/MaryGeraseva/6-docker-jenkins-newman-jjb
+[There is my version](https://github.com/MaryGeraseva/6-docker-jenkins-newman-jjb) of Jenkins docker image.   
+It based on the official Jenkins docker image and also includes Node.js, Newman, Python, PIP, VIM and JJB.       
+This is a fully completed solution for working with Jenkins, JJB, and Postman collections.  
 
 * open command line
 * check docker version `docker --version`
@@ -86,7 +85,6 @@ https://github.com/MaryGeraseva/6-docker-jenkins-newman-jjb
 * add jobs with JJB from command-line  
 `jenkins-jobs --conf ./jenkins_jobs.ini update ./jobs.yaml`
 * check changes in your Jenkins
-
 
 ## For feedback
 **e-mail:** mary.geraseva@gmail.com  
